@@ -1,11 +1,29 @@
 import React from "react";
 import "../App.css";
 
-const Form = () => {
+const Form = ({ inputText, setInputText, todos, setTodos }) => {
+  //Here I can write JavaScript code and functions
+  const inputTextHandler = (e) => {
+    console.log(e.target.value);
+    setInputText(e.target.value);
+  };
+  const sumbitTodoHandler = (e) => {
+    e.preventDefault();
+    setTodos([
+      ...todos,
+      { text: inputText, completed: false, id: Math.random() * 1234 },
+    ]);
+    setInputText("");
+  };
   return (
     <form>
-      <input type="text" className="todo-input" />
-      <button className="todo-button" type="submit">
+      <input
+        value={inputText}
+        onChange={inputTextHandler}
+        type="text"
+        className="todo-input"
+      />
+      <button onClick={sumbitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
       <div className="select">
