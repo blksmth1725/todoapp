@@ -4,7 +4,6 @@ import "../App.css";
 const Form = ({ inputText, setInputText, todos, setTodos }) => {
   //Here I can write JavaScript code and functions
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
     setInputText(e.target.value);
   };
   const sumbitTodoHandler = (e) => {
